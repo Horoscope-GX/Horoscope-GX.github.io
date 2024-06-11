@@ -5,13 +5,17 @@ async function askChatGPT() {
   responseDiv.innerHTML = 'Loading...';
 
   try {
-    const response = await fetch('/api/chatgpt', {
+    const response = await fetch('/.netlify/functions/chatgpt', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({ prompt: question })
     });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
 
     const data = await response.json();
     responseDiv.innerHTML = data.choices[0].text.trim();
