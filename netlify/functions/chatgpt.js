@@ -13,7 +13,7 @@ exports.handler = async (event, context) => {
     // Use dynamic import instead of require
     const fetch = await import('node-fetch');
 
-    const response = await fetch.default('https://api.openai.com/v1/engines/davinci-codex/completions', {
+    const response = await fetch.default('https://api.openai.com/v1/engines/davinci/completions', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
