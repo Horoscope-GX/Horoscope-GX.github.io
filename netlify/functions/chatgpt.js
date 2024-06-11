@@ -13,7 +13,7 @@ exports.handler = async (event, context) => {
     // Use dynamic import instead of require
     const fetch = await import('node-fetch');
 
-    const response = await fetch.default('https://api.openai.com/v1/engines/davinci/completions', {
+    const response = await fetch.default('https://api.openai.com/v1/engines/gpt-3.5-turbo/completions', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
